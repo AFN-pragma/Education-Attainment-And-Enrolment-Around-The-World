@@ -1,0 +1,20 @@
+import pandas as pd
+from ydata_profiling import ProfileReport
+
+#Step 1: Data exploration with Pandas
+
+EDUCATION = pd.read_csv('EDUCATION_ATTAINMENT.csv')
+print(EDUCATION)
+print(EDUCATION.info())
+print(type(EDUCATION))
+print(EDUCATION.describe())
+
+#Step 2: Data exploration with ydata-profiling
+
+profile = ProfileReport(EDUCATION, title = 'EDUCATION_ATTAINMENT')
+print(profile)
+profile.to_file('EDUCATION')
+
+print(EDUCATION.isnull())
+
+#we have a correlation of approximately 1 
